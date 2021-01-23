@@ -2,21 +2,27 @@ import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { StyleSheet } from 'react-native';
 
-const Control = () => {
+const Control = ({isRunning, onHandleLeftButton, onHandleRightButton}) => {
     return (
         <View style={styles.control}>
-            <TouchableOpacity style={styles.wrapperButton}>
+            <TouchableOpacity
+            style={[styles.wrapperButton, { backgroundColor: isRunning ? "#333333" : "#1c1c1e" }]}
+            onPress={onHandleLeftButton}
+            >
                 <View style={[styles.innerButton, styles.leftButton]}>
-                    <Text style={{color: "white"}}>
-                        Step
+                    <Text style={{ color: isRunning ? "#fff" : "#9d9ca2" }}>
+                        {isRunning ? "Step" : "Reset"}
                     </Text>
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.wrapperButton}>
+            <TouchableOpacity
+            style={[styles.wrapperButton, { backgroundColor: isRunning ? "#340e0d" : "#0a2a12" }]}
+            onPress={onHandleRightButton}
+            >
                 <View style={[styles.innerButton, styles.rightButton]}>
-                    <Text style={{color: "white"}}>
-                        Start
+                    <Text style={{ color: isRunning ? "#ea4c49" : "#37d05c" }}>
+                        {isRunning ? "Stop" : "Start"}
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -48,12 +54,6 @@ const styles = StyleSheet.create({
         borderRadius: 65,
         color: "white"
     },
-    leftButton: {
-        backgroundColor: "#1c1c1e"
-    },
-    rightButton: {
-        backgroundColor: "#37d05c"
-    }
 })
 
 export default Control

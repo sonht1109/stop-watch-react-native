@@ -12,7 +12,5 @@ export const formatTime = (time) => {
     let remainMinutes = minutes % 60
     let hours = (minutes - remainMinutes) / 60
 
-    console.log(`${formatNumber(hours)} : ${formatNumber(remainMinutes)} : ${formatNumber(remainSeconds)},${formatNumber(remainMiniseconds)}`)
-
     return `${formatNumber(hours)}:${formatNumber(remainMinutes)}:${formatNumber(remainSeconds)},${formatNumber(remainMiniseconds)}`
 }

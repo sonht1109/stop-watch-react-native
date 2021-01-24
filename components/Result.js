@@ -11,7 +11,7 @@ const Result = ({results})=> {
       style={{flexDirection: "row", padding: 15, borderTopColor: "#313131", borderWidth: 1}}
       key={index}
       >
-        <Text style={{color: "white"}}>Step {index+1}</Text>
+        <Text style={{color: "white"}}>Step {results.length - index}</Text>
         <Text style={{color: "white", marginLeft: "auto"}}>
           {formatTime(time)}
         </Text>
@@ -28,4 +28,4 @@ const Result = ({results})=> {
   )
 }
 
-export default Result
+export default React.memo(Result)
